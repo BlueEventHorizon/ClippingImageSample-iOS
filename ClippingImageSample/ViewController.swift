@@ -27,6 +27,23 @@ class ViewController: UIViewController {
         imageView.addGestureRecognizer(tapGesture)
     }
 
+    /// UIImageから指定した領域の画像をコピーして返す
+    /// - Parameters:
+    ///   - image: 元画像
+    ///   - rect: コピーする領域。nilの場合は全領域をコピーする
+    /// - Returns: コピーされた画像
+    func copyImage(from image: UIImage, inRange rect: CGRect? = nil) -> UIImage? {
+        
+        let imageRect: CGRect = CGRect(origin: .zero, size: image.size)
+        let copySize: CGRect = rect ?? imageRect
+
+        if let copiedCgImage = image.cgImage?.cropping(to: copySize) {
+            return UIImage(cgImage: copiedCgImage)
+        }
+
+        return nil
+    }
+
     @objc private func addSelectionFrame(_ sender: UITapGestureRecognizer) {
 
         let tappedPoint = sender.location(in: imageView)
@@ -34,10 +51,11 @@ class ViewController: UIViewController {
 
         let tappedPointForImage = convertImageOrigin(from: selectionFrame.frame, of: imageView)
 
-        if let croppedImageBitmap = imageView.image?.cgImage?.cropping(to: tappedPointForImage!) {
+        guard let image = imageView.image else {
+            return
+        }
 
-            let trimmedImage = UIImage(cgImage: croppedImageBitmap)
-
+        if let trimmedImage = copyImage(from: image, inRange: tappedPointForImage) {
             let imageView = UIImageView(image: trimmedImage)
             imageView.contentMode = .scaleAspectFit
             stackView.addArrangedSubview(imageView)
