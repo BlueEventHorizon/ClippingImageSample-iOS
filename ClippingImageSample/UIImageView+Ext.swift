@@ -43,15 +43,6 @@ extension UIImageView {
     
         var transform: CGAffineTransform
 
-        let scale: CGFloat
-        if self.contentMode == .scaleAspectFill {
-            scale = min(scaleX, scaleY)
-        } else if self.contentMode == .scaleAspectFit {
-            scale = max(scaleX, scaleY)
-        } else {
-            scale = min(scaleX, scaleY)
-        }
-
         switch imageOrientation {
                 case .left:
                     transform = CGAffineTransform(rotationAngle: .pi / 2)
@@ -64,6 +55,7 @@ extension UIImageView {
         }
 
         if self.contentMode == .scaleAspectFill {
+            let scale = min(scaleX, scaleY)
 
             if scaleX > scaleY {
                 // この場合、 imageView に対して image が横に長く、左右がcroppingされている
@@ -83,6 +75,8 @@ extension UIImageView {
             transform = transform.scaledBy(x: scale, y: scale)
             
         } else if self.contentMode == .scaleAspectFit {
+            let scale = max(scaleX, scaleY)
+            
             if scaleX > scaleY {
                 // 上下に空白があるので、これを減算する
                 let offset = (image.size.height - self.frame.height * scale) / 2
