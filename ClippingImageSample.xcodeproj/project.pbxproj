@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52974A1F26C66DF500983CD1 /* UIImageView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52974A1E26C66DF500983CD1 /* UIImageView+Copy.swift */; };
 		C9D164F226BCE60000A28338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D164F126BCE60000A28338 /* AppDelegate.swift */; };
 		C9D164F426BCE60000A28338 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D164F326BCE60000A28338 /* SceneDelegate.swift */; };
 		C9D164F626BCE60000A28338 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D164F526BCE60000A28338 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52974A1E26C66DF500983CD1 /* UIImageView+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Copy.swift"; sourceTree = "<group>"; };
 		C9D164EE26BCE60000A28338 /* ClippingImageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClippingImageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D164F126BCE60000A28338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D164F326BCE60000A28338 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				C9D164F126BCE60000A28338 /* AppDelegate.swift */,
 				C9D164F326BCE60000A28338 /* SceneDelegate.swift */,
 				C9D164F526BCE60000A28338 /* ViewController.swift */,
+				52974A1E26C66DF500983CD1 /* UIImageView+Copy.swift */,
 				C9D164F726BCE60000A28338 /* Main.storyboard */,
 				C9D164FA26BCE61600A28338 /* Assets.xcassets */,
 				C9D164FC26BCE61600A28338 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				C9D164F626BCE60000A28338 /* ViewController.swift in Sources */,
 				C9D164F226BCE60000A28338 /* AppDelegate.swift in Sources */,
+				52974A1F26C66DF500983CD1 /* UIImageView+Copy.swift in Sources */,
 				C9D164F426BCE60000A28338 /* SceneDelegate.swift in Sources */,
 				C9D1650626BCEDB500A28338 /* SelectionFrameView.swift in Sources */,
 			);
