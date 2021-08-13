@@ -40,21 +40,37 @@ extension UIImageView {
 
         let scaleX = image.size.width / self.frame.size.width
         let scaleY = image.size.height / self.frame.size.height
+        let scale = min(scaleX, scaleY)
         
         var transform: CGAffineTransform
-        
+
         switch imageOrientation {
                 case .left:
-                    transform = CGAffineTransform(rotationAngle: .pi / 2).translatedBy(x: 0, y: -image.size.height)
+                    transform = CGAffineTransform(rotationAngle: .pi / 2).translatedBy(x: 0, y: -image.size.height).scaledBy(x: scale, y: scale)
                 case .right:
-                    transform = CGAffineTransform(rotationAngle: -.pi / 2).translatedBy(x: -image.size.width, y: 0)
+                    transform = CGAffineTransform(rotationAngle: -.pi / 2).translatedBy(x: -image.size.width, y: 0).scaledBy(x: scale, y: scale)
                 case .down:
-                    transform = CGAffineTransform(rotationAngle: -.pi).translatedBy(x: -image.size.width, y: -image.size.height)
+                    transform = CGAffineTransform(rotationAngle: -.pi).translatedBy(x: -image.size.width, y: -image.size.height).scaledBy(x: scale, y: scale)
                 default:
                     transform = .identity
         }
-        
-        transform = transform.scaledBy(x: scaleX, y: scaleY)
+
+        if scaleX > scaleY {
+            // この場合、 imageView に対して image が横に長く、左右がcroppingされている
+            // 左側でcroppingされているoffsetを求めて移動させる
+            let offset = (image.size.width - self.frame.width * scale) / 2
+            transform = transform.translatedBy(x: offset, y: 0)
+            
+        } else if scaleX < scaleY {
+            // この場合、 imageView に対して image が縦に長く、上下がcroppingされている
+            // 左側でcroppingされているoffsetを求めて移動させる
+            let offset = (image.size.height - self.frame.height * scale) / 2
+            transform = transform.translatedBy(x: 0, y: offset)
+        } else {
+            // 全画像がcroppingされずに表示されているはずなので、何もしない
+        }
+
+        transform = transform.scaledBy(x: scale, y: scale)
 
         return rect.applying(transform)
     }
