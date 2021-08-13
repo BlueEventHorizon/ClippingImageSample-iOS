@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panorama-sample" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-a0-JLX">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-sample" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-a0-JLX">
                                 <rect key="frame" x="0.0" y="44" width="414" height="658"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qOl-6A-Xx1">
@@ -49,7 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="panorama-sample" width="3737" height="1083"/>
+        <image name="vertical-sample" width="1536" height="3685"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
